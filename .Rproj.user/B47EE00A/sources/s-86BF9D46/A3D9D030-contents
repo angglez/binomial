@@ -48,7 +48,7 @@ devtools::install_github("angglez/binomial", build_vignettes=TRUE)
 
 ###Application
 
-```{r}
+```{r, fig.show='hold'}
 library(BinDist)
 
 #table of binomial probability distribution and cumulative probability distribution

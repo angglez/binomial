@@ -32,12 +32,38 @@ Utilize the package `"devtools"` to install the package:
 
 # install "BinDist" without vignettes
 devtools::install_github("angglez/binomial")
-#> Skipping install of 'BinDist' from a github remote, the SHA1 (1f49cc94) has not changed since last install.
-#>   Use `force = TRUE` to force installation
+#> Downloading GitHub repo angglez/binomial@master
+#>   
+   checking for file ‘/private/var/folders/vf/nj7b74hn2xxb4n55t50knlkw0000gq/T/Rtmpg0ktSM/remotes7145b156a7b/angglez-binomial-bb21805/DESCRIPTION’ ...
+  
+✔  checking for file ‘/private/var/folders/vf/nj7b74hn2xxb4n55t50knlkw0000gq/T/Rtmpg0ktSM/remotes7145b156a7b/angglez-binomial-bb21805/DESCRIPTION’ (349ms)
+#> 
+  
+─  preparing ‘BinDist’:
+#> 
+  
+   checking DESCRIPTION meta-information ...
+  
+✔  checking DESCRIPTION meta-information
+#> 
+  
+─  checking for LF line-endings in source and make files and shell scripts
+#> 
+  
+─  checking for empty or unneeded directories
+#> 
+  
+─  building ‘BinDist_0.1.0.tar.gz’
+#> 
+  
+   
+#> 
+#> Installing package into '/Users/Anglezzz/Library/R/3.5/library'
+#> (as 'lib' is unspecified)
 
 # install "BinDist" with vignettes
 devtools::install_github("angglez/binomial", build_vignettes=TRUE)
-#> Skipping install of 'BinDist' from a github remote, the SHA1 (1f49cc94) has not changed since last install.
+#> Skipping install of 'BinDist' from a github remote, the SHA1 (bb218058) has not changed since last install.
 #>   Use `force = TRUE` to force installation
 ```
 
@@ -67,19 +93,9 @@ dis2
 #graph of binomial probability distribution
 dis1 <- bin_distribution(10,0.3)
 plot(dis1)
-```
-
-![](README-unnamed-chunk-2-1.png)<!-- -->
-
-``` r
 
 #graph of cumulative binomial probability distribution
 plot(dis2)
-```
-
-![](README-unnamed-chunk-2-2.png)<!-- -->
-
-``` r
 
 #display of binomial distribution variables and summary measures
 sum <- bin_variable(10,0.3)
@@ -97,3 +113,5 @@ summary(sum)
 #> - skewness: 0.2760262 
 #> - kurtosis: -0.1238095
 ```
+
+![](README-unnamed-chunk-2-1.png)![](README-unnamed-chunk-2-2.png)
