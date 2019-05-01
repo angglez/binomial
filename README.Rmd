@@ -1,7 +1,6 @@
 ---
-title: "README"
-output: 
-  github_document: 
+output:
+  github_document:
     html_preview: false
 ---
 
@@ -16,32 +15,32 @@ knitr::opts_chunk$set(
 
 ## Context
 
-'"BinDist"' is a package that implements the relevant calculations and parameters necessary to calculate the Binomial distribution of discrete random variables, as well as further implementations of the cumulative binomial distribution and relevant visuals.
+`"BinDist"` is a package that implements the relevant calculations and parameters necessary to calculate the Binomial distribution of discrete random variables, as well as further implementations of the cumulative binomial distribution and relevant visuals.
 
 
-+ 'bin_choose()' computes the combinations of size k that can be selected from size n, order doesn't matter  
-+ 'bin_probability()' computes the binomial probability of k successes from n trials, with a certain probability of success  
-+ 'bin_distribution()' compiles the binomial probability of varying successes to form a binomial probability distribution  
-+ 'bin_cumulative()' compiles the cumulative binomial probability to form the cumulative provavility distribution  
-+ 'plot()' plots the distribution of 'bin_distribution()' and 'bin_cumulative()'  
-+ 'bin_variable()' displays the parameters of the binomial distribution  
-+ 'summary()' applied onto 'bin_variable()' displays the summary measures of the distribution
++ `bin_choose()` computes the combinations of size k that can be selected from size n, order doesn't matter  
++ `bin_probability()` computes the binomial probability of k successes from n trials, with a certain probability of success  
++ `bin_distribution()` compiles the binomial probability of varying successes to form a binomial probability distribution  
++ `bin_cumulative()` compiles the cumulative binomial probability to form the cumulative provavility distribution  
++ `plot()` plots the distribution of `bin_distribution()` and `bin_cumulative()`  
++ `bin_variable()` displays the parameters of the binomial distribution  
++ `summary()` applied onto `bin_variable()` displays the summary measures of the distribution
 
 
 ***
 
 ###Install the Package
 
-Utilize the package '"devtools"' to install the package:
+Utilize the package `"devtools"` to install the package:
 
 ```{r}
 # install.packages("devtools")
 
 # install "BinDist" without vignettes
-devtools::install_github("stat133-sp19/hw-stat133-angglez/binomial")
+devtools::install_github("angglez/binomial")
 
 # install "BinDist" with vignettes
-devtools::install_github("stat133-sp19/hw-stat133-angglez/binomial", build_vignettes=TRUE)
+devtools::install_github("angglez/binomial", build_vignettes=TRUE)
 ```
 
 

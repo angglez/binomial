@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1556747581565.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "1AF7D310",
+    "lastKnownWriteTime" : 1556747519,
+    "last_content_update" : 1556747519,
+    "path" : "~/BinDist/README.md",
+    "project_path" : "README.md",
+    "properties" : {
+        "cursorPosition" : "2,0",
+        "scrollLine" : "3"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 10,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "markdown"
+}

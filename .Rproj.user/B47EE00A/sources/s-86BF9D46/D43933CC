@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1556747047559.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "394186436",
+    "id" : "D43933CC",
+    "lastKnownWriteTime" : 1556701990,
+    "last_content_update" : 1556701990,
+    "path" : "~/BinDist/.Rhistory",
+    "project_path" : ".Rhistory",
+    "properties" : {
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 9,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_history"
+}
