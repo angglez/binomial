@@ -23,7 +23,7 @@ binomial distribution and relevant visuals.
 
 -----
 
-###Install the Package
+### Install the Package
 
 Utilize the package `"devtools"` to install the package:
 
@@ -39,7 +39,7 @@ devtools::install_github("angglez/binomial", build_vignettes=TRUE)
 
 -----
 
-###Application
+### Application
 
 ``` r
 library(BinDist)
