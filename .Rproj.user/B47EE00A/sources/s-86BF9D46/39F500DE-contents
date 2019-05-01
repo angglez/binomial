@@ -1,0 +1,20 @@
+context("Checkers")
+
+test_that("check_prob with valid and invalid prob", {
+  expect_true(check_prob(0.001))
+  expect_error(check_prob(-1))
+  expect_true(check_prob(0:1))
+})
+
+test_that("check_trials with valid and invalid trials", {
+  expect_true(check_trials(4))
+  expect_error(check_trials(0.4))
+  expect_error(check_trials(-3))
+})
+
+test_that("check_success with valid and invalid success", {
+  expect_true(check_success(10,20))
+  expect_error(check_success(20,10))
+  expect_error(check_success(-1, 1))
+  expect_error(check_success(0.5,1))
+})

@@ -1,0 +1,172 @@
+# Private Checker Functions
+
+# check if input prob is a valid probability value
+check_prob <- function(prob) {
+  if (prob <= 1 & prob >= 0) {
+    return(TRUE)
+  } else {
+    stop('invalid prob value')
+  }
+}
+
+# check if input trials is valid value for number of trials
+check_trials <- function(trials) {
+  if (trials%%1==0 & trials >= 0) {
+    return(TRUE)
+  } else {
+    stop('invalid trials value')
+  }
+}
+
+# check if input success is valid value for number of successes
+check_success <- function(success, trials) {
+  if (success%%1==0 & success >= 0 & success <= trials) {
+    return(TRUE)
+  } else {
+    stop('invalid success value')
+  }
+}
+
+
+# Private Auxilary Functions
+
+# calculate the mean of a binomial dist with n trials and prob success p
+aux_mean <- function(n,p) {
+  return(n*p)
+}
+
+# calculate the variance of a binomial dist with n trials and prob success p
+aux_variance <- function(n,p) {
+  return(n*p*(1-p))
+}
+
+# calculate the mode of a binomial dist with n trials and prob success p
+aux_mode <- function(n,p) {
+  m <- floor(n*p+p)
+  if (is.integer(m)) {
+    return(c(m, m-1))
+  } else {
+    return(m)
+  }
+}
+
+# calculate the skewness (asymmetry) of the probability dist of a RV
+aux_skewness <- function(n,p) {
+  s <- (1-2*p)/sqrt(n*p*(1-p))
+  return(s)
+}
+
+# calculate the kurtosis ("tailedness") of the probability dsit of a RV
+aux_kurtosis <- function(n,p) {
+  k <- (1-6*p*(1-p))/(n*p*(1-p))
+  return(k)
+}
+
+
+#' @title Binomial Choose 
+#' @description calculate the number of combinations
+#' @param n number of trials, integer
+#' @param k number of successes, integer
+#' @return number of combinations in which k successes can occur in n trials
+#' @export
+#' @example 
+#' bin_choose(5,2) ##returns 10
+bin_choose <- function(n,k) {
+  if (k>n) {
+    stop('k cannot be greater than n')
+  } else {
+    c <- factorial(n) / (factorial(k)*factorial(n-k))
+    return(c)
+  }
+}
+
+#' @title Binomial Probability
+#' @description calculate the probability
+#' @param success number of successes, integer
+#' @param trials total number of trials, integer
+#' @param prob probability of success, real
+#' @return the probability of getting success within trials given the probability
+#' @export 
+#' @example 
+#' bin_probability(2,5,0.5) ##returns 0.3125
+bin_probability <- function(success, trials, prob) {
+  check_prob(prob)
+  check_success(success,trials)
+  check_trials(trials)
+  p <- bin_choose(trials, success) * prob^success * (1-prob)^(trials-success)
+  return(p)
+}
+
+#' @title Binomial Distribution
+#' @description computes the binomial distribution
+#' @param trials number of trials, integer
+#' @param prob probability of success
+#' @return data frame with probability distribution
+#' @export 
+#' @example
+#' bin_distribution(5,0,5)
+bin_distribution <- function(trials, prob) {
+  freqs <- data.frame(success=rep(0,trials), probability=rep(0,trials))
+  for (s in 0:trials) {
+    freqs[s+1,1] <- s
+    freqs[s+1,2] <- bin_probability(s,trials,prob)
+  }
+  class(freqs) <- c('bindis','data.frame')
+  return(freqs)
+}
+
+#' @export 
+plot.bindis <- function(trials,prob) {
+  dis <- bin_distribution(trials,prob)
+  barplot(dis[,2],main='Binomial Distribution',xlab='Successes', ylab='Probability',names.arg=dis[,1])
+}
+
+#' @title Binomial Cumulative
+#' @description computes the cumulative binomial distribution function
+#' @param trials number of trials, integer
+#' @param prob probability of success
+#' @return data frame with cumulative probability distribution
+#' @export 
+#' @example
+#' bin_cumulative(5,0.5)
+bin_cumulative <- function(trials,prob) {
+  cumul <- bin_distribution(trials,prob)
+  cumul$cumulative <- cumul[1,2]
+  for (x in 2:(trials+1)) {
+    cumul$cumulative[x] <- cumul[x-1,3] + cumul[x,2]
+  }
+  class(cumul) <- c('bincum','data.frame')
+  return(cumul)
+}
+
+#' @export
+plot.bincum <- function(trials,prob) {
+  dis <- bin_cumulative(trials,prob)
+  plot(x=dis$success, y=dis$cumulative, main='Cumulative Binomial Distribution', xlab='Successes',ylab='Probability')
+  lines(x=dis$success, y=dis$cumulative)
+}
+
+#' @title Binomial Variable
+#' @description binomial distribution variables
+#' @param trials number of total trials, integer
+#' @param prob probability of success
+#' @return list with number of trials and probability of success
+#' @export
+#' @examples 
+#' bin_variable(10,0.5)
+bin_variable <- function(trials,prob) {
+  check_prob(prob)
+  check_trials(trials)
+  v <- c('number of trials'= trials, 'prob of success'= prob)
+  class(v) <- 'binvar'
+  return(v)
+}
+
+#' @export
+print.binvar <- function(trials,prob) {
+  bin <- bin_variable(trials,prob)
+  bin
+}
+
+
+

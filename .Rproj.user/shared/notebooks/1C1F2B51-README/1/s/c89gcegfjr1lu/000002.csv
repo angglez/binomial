@@ -1,0 +1,5 @@
+"0","library(BinDist)"
+"0",""
+"0","#table of binomial probability distribution and cumulative probability distribution"
+"0","dis2 <- bin_cumulative(10,0.3)"
+"0","dis2"

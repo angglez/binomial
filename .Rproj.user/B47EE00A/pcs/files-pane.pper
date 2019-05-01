@@ -1,0 +1,9 @@
+{
+    "path" : "~/BinDist",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}

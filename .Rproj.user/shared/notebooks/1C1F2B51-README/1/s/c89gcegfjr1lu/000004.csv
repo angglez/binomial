@@ -1,0 +1,4 @@
+"0",""
+"0","#graph of binomial probability distribution"
+"0","dis1 <- bin_distribution(10,0.3)"
+"0","plot(dis1)"

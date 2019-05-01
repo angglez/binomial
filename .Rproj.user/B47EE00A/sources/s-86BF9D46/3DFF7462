@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1556569953519.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "3DFF7462",
+    "lastKnownWriteTime" : 1556743241,
+    "last_content_update" : 1556744636288,
+    "path" : "~/BinDist/R/bindist.R",
+    "project_path" : "R/bindist.R",
+    "properties" : {
+        "cursorPosition" : "73,0",
+        "scrollLine" : "59"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
